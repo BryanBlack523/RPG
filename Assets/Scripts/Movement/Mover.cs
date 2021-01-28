@@ -1,41 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using RPG.Core;
 
-public class Mover : MonoBehaviour
+namespace RPG.Movement
 {
-    [SerializeField] Transform target = null;
-
-    private int cashedSpeed = Animator.StringToHash("forwardSpeed");
-
-    void Update()
+    public class Mover : MonoBehaviour, IAction
     {
-        if (Input.GetMouseButton(0))
-            MoveToCursor();
+        private int cashedSpeed = Animator.StringToHash("forwardSpeed");
+        private NavMeshAgent navMeshAgent;
 
-        UpdateAnimator();
-        
-    }
+        private void Start()
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
+        void Update()
+        {
+            UpdateAnimator();
+        }
 
-    private void MoveToCursor()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        bool hasHit = Physics.Raycast(ray, out hit);
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<ActionScheduler>().StartAction(this);
+            MoveTo(destination);
+        }
 
-        if (hasHit)
-            GetComponent<NavMeshAgent>().destination = hit.point;
-    }
+        public void MoveTo(Vector3 destination)
+        {
+            navMeshAgent.destination = destination;
+            navMeshAgent.isStopped = false;
+        }
 
-    private void UpdateAnimator()
-    {
-        Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+        public void Cancel()
+        {
+            navMeshAgent.isStopped = true;
+        }
 
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        private void UpdateAnimator()
+        {
+            Vector3 velocity = navMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
-        float speed = localVelocity.z;
+            float speed = localVelocity.z;
 
-        GetComponent<Animator>().SetFloat(cashedSpeed, speed);
+            GetComponent<Animator>().SetFloat(cashedSpeed, speed);
+        }
     }
 }
