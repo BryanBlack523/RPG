@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7808290443186214332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711050298515426861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573589ae3482a0943a69cc6cf0925766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &5530313940216115468
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26,6 +14,31 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7808290443186214332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6711050298515426861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573589ae3482a0943a69cc6cf0925766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1315222862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6711050298515426861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e1dbde3ddf9424aaf09418d7cfaca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 5
 --- !u!1001 &1429510798704907511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,6 +51,10 @@ PrefabInstance:
       propertyPath: health
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 728182418, guid: 26cb6b5fa5da6444cb766e2d0009c5a5, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46,12 +63,12 @@ PrefabInstance:
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.9326096
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
@@ -172,5 +189,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13787996, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bfbe2e8b331e2cc42be1591f949c0e41, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}

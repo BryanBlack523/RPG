@@ -8,13 +8,16 @@ namespace RPG.Movement
     {
         private int cashedSpeed = Animator.StringToHash("forwardSpeed");
         private NavMeshAgent navMeshAgent;
+        Health health;
 
         private void Start()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
         void Update()
         {
+            navMeshAgent.enabled = !health.IsDead();
             UpdateAnimator();
         }
 
