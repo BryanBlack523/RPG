@@ -13,6 +13,7 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 2f;
         [SerializeField] float attackCoolDown = 1f;
         [SerializeField] float weaponDamage = 10f;
+        [Range(0, 1)] [SerializeField] float speedFraction = 0.6f;
 
         private int attackCashed = Animator.StringToHash("attack");
         private int stopAttackCashed = Animator.StringToHash("stopAttack");
@@ -26,7 +27,7 @@ namespace RPG.Combat
             if (target.IsDead()) return;
 
             if (!IsInRange())
-                GetComponent<Mover>().MoveTo(target.transform.position);
+                GetComponent<Mover>().MoveTo(target.transform.position, speedFraction);
             else
             {
                 GetComponent<Mover>().Cancel();

@@ -14,18 +14,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7808290443186214332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711050298515426861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573589ae3482a0943a69cc6cf0925766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1315222862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,6 +27,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  suspicionTime: 3
+  waypointDwellTime: 3
+  patrolpath: {fileID: 0}
+  waypointTolerance: 1
+--- !u!114 &7808290443186214332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6711050298515426861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573589ae3482a0943a69cc6cf0925766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1429510798704907511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,17 +62,17 @@ PrefabInstance:
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5954666
+      value: 14.34
       objectReference: {fileID: 0}
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: 0.339
       objectReference: {fileID: 0}
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.6
+      value: 4.92
       objectReference: {fileID: 0}
     - target: {fileID: 4105820403507754030, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
@@ -113,7 +117,7 @@ PrefabInstance:
     - target: {fileID: 5689406218149206746, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8334973662791130173, guid: 26cb6b5fa5da6444cb766e2d0009c5a5,
         type: 3}
