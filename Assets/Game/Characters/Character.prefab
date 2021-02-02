@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8089172726323136842}
   - component: {fileID: 7825144170261639182}
   - component: {fileID: -5720515007338347578}
+  - component: {fileID: -9036149333687099476}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -88,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47824295ac211f4182dd0b39ae80c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 6
 --- !u!195 &728182418
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -144,6 +146,7 @@ MonoBehaviour:
   weaponRange: 2
   attackCoolDown: 1
   weaponDamage: 10
+  speedFraction: 0.6
 --- !u!114 &7825144170261639182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +172,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &-9036149333687099476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689406218149206746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 

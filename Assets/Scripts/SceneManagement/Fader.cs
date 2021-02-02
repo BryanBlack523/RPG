@@ -29,6 +29,11 @@ namespace RPG.SceneManagement
             yield return null;
         }
 
+        public void FadeOutImmediate()
+        {
+            canvasGroup.alpha = 1;
+        }
+
         public IEnumerator FadeIn(float time)
         {
             while (canvasGroup.alpha > 0)

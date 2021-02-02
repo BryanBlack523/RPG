@@ -334,6 +334,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 492326459642981927, guid: 5182e601c0a63df47bbe89ec3c5b98f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.403791
+      objectReference: {fileID: 0}
+    - target: {fileID: 492326459642981927, guid: 5182e601c0a63df47bbe89ec3c5b98f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.359883
+      objectReference: {fileID: 0}
+    - target: {fileID: 492326459642981927, guid: 5182e601c0a63df47bbe89ec3c5b98f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00000166893
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5182e601c0a63df47bbe89ec3c5b98f6, type: 3}
 --- !u!1001 &380804184
@@ -517,7 +532,7 @@ PrefabInstance:
     - target: {fileID: 1195525439501176841, guid: 6868857adc5e08648ac17bc4bfaaf10e,
         type: 3}
       propertyPath: m_Name
-      value: Portal
+      value: PumpkinPortal
       objectReference: {fileID: 0}
     - target: {fileID: 1941512230150651228, guid: 6868857adc5e08648ac17bc4bfaaf10e,
         type: 3}
@@ -910,10 +925,18 @@ PrefabInstance:
       propertyPath: destination
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 745427279, guid: 6868857adc5e08648ac17bc4bfaaf10e, type: 3}
+      propertyPath: fadeOutTime
+      value: 40.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 745427279, guid: 6868857adc5e08648ac17bc4bfaaf10e, type: 3}
+      propertyPath: fadeInTime
+      value: 47.95
+      objectReference: {fileID: 0}
     - target: {fileID: 1195525439501176841, guid: 6868857adc5e08648ac17bc4bfaaf10e,
         type: 3}
       propertyPath: m_Name
-      value: Portal (1)
+      value: FlowerPortal
       objectReference: {fileID: 0}
     - target: {fileID: 1941512230150651228, guid: 6868857adc5e08648ac17bc4bfaaf10e,
         type: 3}

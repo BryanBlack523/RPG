@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.Saving;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         private int cashedSpeed = Animator.StringToHash("forwardSpeed");
 
@@ -50,6 +54,32 @@ namespace RPG.Movement
             float speed = localVelocity.z;
 
             GetComponent<Animator>().SetFloat(cashedSpeed, speed);
+        }
+
+        [System.Serializable]
+        struct MoverSavingData
+        {
+            public SerializableVector3 position;
+            public SerializableVector3 rotation;
+        }
+
+        public object CaptureState()
+        {
+            MoverSavingData data = new MoverSavingData();
+            data.position = new SerializableVector3(transform.position);
+            data.rotation = new SerializableVector3(transform.eulerAngles);
+
+            return data;
+        }
+
+        public void RestoreState(object state)
+        {
+            MoverSavingData data = (MoverSavingData)state;
+
+            GetComponent<NavMeshAgent>().enabled = false;
+            transform.position = data.position.ToVector();
+            transform.eulerAngles = data.rotation.ToVector();
+            GetComponent<NavMeshAgent>().enabled = true;
         }
     }
 }
