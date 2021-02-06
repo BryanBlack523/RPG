@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using System;
 
 namespace RPG.Combat
 {
@@ -10,14 +11,31 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction
     {
         Health target;
-        [SerializeField] float weaponRange = 2f;
+        
         [SerializeField] float attackCoolDown = 1f;
-        [SerializeField] float weaponDamage = 10f;
         [Range(0, 1)] [SerializeField] float speedFraction = 0.6f;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
+        [SerializeField] Weapon defaultWeapon = null;
+
 
         private int attackCashed = Animator.StringToHash("attack");
         private int stopAttackCashed = Animator.StringToHash("stopAttack");
         private float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
+
+
+        private void Start()
+        {
+            EquipWeapon(defaultWeapon);
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+        }
 
         private void Update()
         {
@@ -50,7 +68,7 @@ namespace RPG.Combat
 
         private bool IsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -78,7 +96,7 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(weaponDamage);
+            target.TakeDamage(currentWeapon.GetDamage());
         }
     }
 }
