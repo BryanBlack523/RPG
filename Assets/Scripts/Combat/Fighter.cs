@@ -4,11 +4,12 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using System;
+using RPG.Saving;
 
 namespace RPG.Combat
 {
     
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         Health target;
         
@@ -17,6 +18,7 @@ namespace RPG.Combat
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] string defaultWeaponName = "Unarmed";
 
 
         private int attackCashed = Animator.StringToHash("attack");
@@ -27,7 +29,8 @@ namespace RPG.Combat
 
         private void Start()
         {
-            EquipWeapon(defaultWeapon);
+            if (currentWeapon == null)
+                EquipWeapon(defaultWeapon);
         }
 
         public void EquipWeapon(Weapon weapon)
@@ -96,7 +99,28 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(currentWeapon.GetDamage());
+
+            if (currentWeapon.HasProjectile())
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            else
+                target.TakeDamage(currentWeapon.GetDamage());
+        }
+
+        void Shoot()
+        {
+            Hit();
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
+            EquipWeapon(weapon);
         }
     }
 }

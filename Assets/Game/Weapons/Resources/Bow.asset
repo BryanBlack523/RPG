@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   weaponOverride: {fileID: 22100000, guid: e750827971aa4d34ea0c676e3715f1a0, type: 2}
-  weaponPrefab: {fileID: 1563655986059756, guid: 7f105c0c272e6c146b4b41cdc53ea356,
+  weaponPrefab: {fileID: 5253044285540866962, guid: b9a39f0fdf8c63e42bb6913811a671bf,
     type: 3}
   weaponDamage: 10
-  weaponRange: 2
-  isRightHanded: 1
+  weaponRange: 10
+  isRightHanded: 0
+  projectile: {fileID: 6953404181266525930, guid: af6e3dd65f6892f4c83fce1bb2d223f1,
+    type: 3}

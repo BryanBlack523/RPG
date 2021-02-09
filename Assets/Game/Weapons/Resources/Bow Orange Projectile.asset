@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1624323d36c37f4da035528583cad8f, type: 3}
+  m_Name: Bow Orange Projectile
+  m_EditorClassIdentifier: 
+  weaponOverride: {fileID: 22100000, guid: e750827971aa4d34ea0c676e3715f1a0, type: 2}
+  weaponPrefab: {fileID: 5253044285540866962, guid: b9a39f0fdf8c63e42bb6913811a671bf,
+    type: 3}
+  weaponDamage: 10
+  weaponRange: 10
+  isRightHanded: 0
+  projectile: {fileID: 3051923964297081767, guid: c9d6f82ec87ff9e4fa5ddbb35c5cfaef,
+    type: 3}
